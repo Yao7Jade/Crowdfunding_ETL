@@ -5,7 +5,7 @@
 
 CREATE TABLE Campaign (
     cf_id INTEGER   NOT NULL,
-    contact_id INTERGER   NOT NULL,
+    contact_id INTEGER   NOT NULL,
     company_name VARCHAR(255)   NOT NULL,
     description VARCHAR(255)   NOT NULL,
     goal FLOAT   NOT NULL,
@@ -16,8 +16,8 @@ CREATE TABLE Campaign (
     currency VARCHAR(3)   NOT NULL,
     launch_date DATE   NOT NULL,
     end_date DATE   NOT NULL,
-    category_id INTEGER   NOT NULL,
-    subcategory_id INTEGER   NOT NULL,
+    category_id VARCHAR(20)   NOT NULL,
+    subcategory_id VARCHAR(20)   NOT NULL,
     PRIMARY KEY (cf_id),
     FOREIGN KEY (category_id) REFERENCES Category (category_id),
     FOREIGN KEY (contact_id) REFERENCES Contacts (contact_id),
@@ -25,7 +25,7 @@ CREATE TABLE Campaign (
 );
 
 CREATE TABLE Category (
-    category_id INTEGER   NOT NULL,
+    category_id VARCHAR(20)   NOT NULL,
     category VARCHAR(50)   NOT NULL, 
     PRIMARY KEY (category_id)   
 );
@@ -38,8 +38,8 @@ CREATE TABLE Contacts (
     PRIMARY KEY (contact_id) 
 );
 
-CREATE TABLE "Subcategory" (
-    subcategory_id INTEGER   NOT NULL,
+CREATE TABLE Subcategory (
+    subcategory_id VARCHAR(20)   NOT NULL,
     subcategory VARCHAR(50)   NOT NULL,
     PRIMARY KEY (subcategory_id) 
 );
