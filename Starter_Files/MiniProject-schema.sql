@@ -24,6 +24,14 @@ CREATE TABLE Campaign (
     FOREIGN KEY (subcategory_id) REFERENCES Subcategory (subcategory_id)
 );
 
+CREATE TABLE Campaign_Contact_Junction (
+    cf_id INTEGER NOT NULL
+    contact_id INTEGER  NOT NULL
+    PRIMARY KEY (cf_id, cotacts_id)
+    FOREIGN KEY (cf_id) REFERENCES Campaign (cf_id)
+    FOREIGN KEY (contact_id) REFERENCES Contacts (contact_id)
+);
+
 CREATE TABLE Category (
     category_id VARCHAR(20)   NOT NULL,
     category VARCHAR(50)   NOT NULL, 
@@ -33,7 +41,7 @@ CREATE TABLE Category (
 CREATE TABLE Contacts (
     contact_id INTEGER   NOT NULL,
     first_name VARCHAR(50)   NOT NULL,
-    last_id VARCHAR(50)   NOT NULL,
+    last_name VARCHAR(50)   NOT NULL,
     email VARCHAR(100)   NOT NULL,
     PRIMARY KEY (contact_id) 
 );
